@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cliently/screens/homeScreen.dart';
 import 'package:cliently/utils/myColors.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
@@ -107,25 +108,36 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Center(
                 child: DelayedDisplay(
                   delay: Duration(milliseconds: 1400),
-                  child: Container(
-                    height: height / 12,
-                    width: width / 2,
-                    decoration: BoxDecoration(
-                        color: iColors.dark,
-                        border: Border(
-                            top: BorderSide(width: 5.0, color: iColors.light),
-                            bottom:
-                                BorderSide(width: 5.0, color: iColors.light),
-                            right: BorderSide(width: 5.0, color: iColors.light),
-                            left: BorderSide(width: 5.0, color: iColors.light)),
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Center(
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                            color: iColors.text,
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(PageRouteBuilder(
+                          pageBuilder: (context, animation, _) {
+                            return HomeScreen();
+                          },
+                          opaque: false));
+                    },
+                    child: Container(
+                      height: height / 12,
+                      width: width / 2,
+                      decoration: BoxDecoration(
+                          color: iColors.dark,
+                          border: Border(
+                              top: BorderSide(width: 5.0, color: iColors.light),
+                              bottom:
+                                  BorderSide(width: 5.0, color: iColors.light),
+                              right:
+                                  BorderSide(width: 5.0, color: iColors.light),
+                              left:
+                                  BorderSide(width: 5.0, color: iColors.light)),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Center(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: iColors.text,
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
